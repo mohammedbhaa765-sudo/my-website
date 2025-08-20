@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صفحة الشحن - متجر سوبر جيمز</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .checkout-header {
+      background: #000;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #FFD700;
+    }
+
+    .checkout-header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #FFD700;
+    }
+
+    .checkout-form {
+      max-width: 500px;
+      margin: 30px auto;
+      background: #1c1c1c;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .checkout-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #FFD700;
+    }
+
+    .checkout-form label {
+      display: block;
+      margin: 12px 0 5px;
+      font-size: 15px;
+    }
+
+    .checkout-form input,
+    .checkout-form select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      background: #2b2b2b;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #FFD700;
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #e6c200;
+    }
+
+    .payment-logos {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+    }
+
+    .payment {
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .payment img {
+      width: 60px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- الهيدر -->
+  <header class="checkout-header">
+    <h1>متجر سوبر جيمز - للشحن</h1>
+  </header>
+
+  
+
+  <!-- النموذج -->
+  <main>
+    <form id="checkout-form" class="checkout-form">
+      <h2>أدخل بياناتك</h2>
+
+      <!-- اختيار اللعبة -->
+      <label for="game">اختر اللعبة:</label>
+      <select id="game" name="game" required>
+        <option value="">-- اختر اللعبة --</option>
+        <option value="freefire">فري فاير</option>
+        <option value="pubg">ببجي</option>
+        <option value="mlbb">موبايل ليجند</option>
+        <option value="netflix">حساب نتفلكس</option>
+      </select>
+
+      <!-- ID اللاعب -->
+      <label for="player-id">ID اللاعب:</label>
+      <input type="text" id="player-id" name="player-id" placeholder="أدخل ID الخاص بك" required>
+
+      <label for="confirm-id">تأكيد ID اللاعب:</label>
+      <input type="text" id="confirm-id" name="confirm-id" placeholder="أعد إدخال الـ ID للتأكيد" required>
+
+      <!-- اختيار الباقة -->
+      <label for="package">اختر الباقة:</label>
+      <select id="package" name="package" required>
+        <option value="">-- اختر الباقة --</option>
+      </select>
+
+<!-- السعر يظهر هنا -->
+<label for="price">السعر:</label>
+<input type="text" id="price" name="price" readonly placeholder="سيظهر السعر هنا">
+
+      <!-- وسيلة التواصل -->
+      <label for="contact">الإيميل أو رقم واتساب للتواصل:</label>
+      <input type="text" id="contact" name="contact" placeholder="أدخل بريدك الإلكتروني أو رقمك" required>
+
+      <!-- طرق الدفع (عرض فقط) -->
+      <h3>طرق الدفع:</h3>
+      <div class="payment-logos">
+        <div class="payment">
+          <img src="/broject image/momo.png" alt="Mobile Money Uganda">
+          <p>Mobile Money Uganda</p>
+        </div>
+        <div class="payment">
+          <img src="/broject image/bankak.png" alt="بنكك">
+          <p>بنكك</p>
+        </div>
+        <div class="payment">
+          <img src="/broject image/cashi.png" alt="ماي كاشي">
+          <p>ماي كاشي</p>
+        </div>
+      </div>
+
+      <!-- زر الإرسال -->
+      <button type="submit" class="btn">تأكيد الشحن</button>
+    </form>
+  </main>
+
+<!-- زر الإرسال -->
+  <button type="submit" class="btn"></button>
+</form>
+</main>
+
+
+<!-- ✨ قسم اتصل بنا -->
+<section id="contact" style="background:#1a1a1a; padding:40px; margin:40px auto; max-width:600px; border-radius:15px; text-align:center;">
+  <h2 style="color:#FFD700; margin-bottom:20px;">اتصل بنا</h2>
+  <p>للتواصل معنا عبر الواتساب:</p>
+  <p><a href="https://wa.me/249900000000" target="_blank" style="color:#25D366; font-size:18px; font-weight:bold;">+256 765 617305</a></p>
+  
+  <p>أو عبر البريد الإلكتروني:</p>
+  <p><a href="mailto:support@supergames.com" style="color:#FFD700; font-size:18px; font-weight:bold;">support@supergames.com</a></p>
+</section>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("YOUR_PUBLIC_KEY"); // 🔑 حط المفتاح هنا
+    })();
+
+    document.getElementById("checkout-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+        .then(function() {
+          alert("✅ تم إرسال طلبك بنجاح! سنتواصل معك قريباً");
+        }, function(error) {
+          alert("❌ حصل خطأ، حاول مرة تانية");
+          console.log("FAILED...", error);
+        });
+    });
+
+    // ✅ الباقات لكل لعبة
+    const packages = {
+      freefire: [
+        { value: "100", text: "100 جوهرة" },
+        { value: "210", text: "210 جوهرة" },
+        { value: "560", text: "560 جوهرة" },
+        { value: "1150", text: "1150 جوهرة" }
+      ],
+      pubg: [
+        { value: "60uc", text: "60 UC" },
+        { value: "325uc", text: "325 UC" },
+        { value: "660uc", text: "660 UC" },
+        { value: "1800uc", text: "1800 UC" }
+      ],
+      mlbb: [
+        { value: "86", text: "86 دايموند" },
+        { value: "172", text: "172 دايموند" },
+        { value: "257", text: "257 دايموند" }
+      ],
+      netflix: [
+        { value: "1month", text: "1 شهر" },
+        { value: "3months", text: "3 شهور" },
+        { value: "6months", text: "6 شهور" }
+      ]
+    };
+
+    const gameSelect = document.getElementById("game");
+    const packageSelect = document.getElementById("package");
+
+    gameSelect.addEventListener("change", function() {
+      // مسح الباقات القديمة
+      packageSelect.innerHTML = '<option value="">-- اختر الباقة --</option>';
+
+      const selectedGame = gameSelect.value;
+      if (packages[selectedGame]) {
+        packages[selectedGame].forEach(pkg => {
+          const option = document.createElement("option");
+          option.value = pkg.value;
+          option.textContent = pkg.text;
+          packageSelect.appendChild(option);
+        });
+      }
+    });
+  </script>
+
+<script src="script.js"></script>
+
+
+</body>
+</html>
+
+</body>
+</html>

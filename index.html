@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متجر سوبر جيمز - شحن الألعاب</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <!-- 1. Navigation -->
+  <nav class="navbar">
+    <div class="logo">متجر سوبر جيمز</div>
+    <ul class="nav-links">
+      <li><a href="#">الرئيسية</a></li>
+      <li><a href="#">شحن الألعاب</a></li>
+      <li><a href="#">بطاقات</a></li>
+      <li><a href="#">اتصل بنا</a></li>
+    </ul>
+  </nav>
+
+  <style>
+  .hero {
+    position: relative;
+    text-align: center;
+    padding: 100px 20px;
+    background: #111;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+    color: #FFD700;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 0 10px #000;
+  }
+
+  /* الجواهر */
+  .gem {
+    position: absolute;
+    top: -50px;
+    font-size: 24px;
+    animation: fall linear infinite;
+    opacity: 0.9;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+</style>
+
+  <!-- 2. Hero Section -->
+  <section class="hero">
+    <h1>أفضل و أرخص متجر لشحن الألعاب في السودان</h1>
+
+
+ <!-- جواهر متحركة -->
+  <div class="gem" style="left:10%; animation-duration:6s;">💎</div>
+  <div class="gem" style="left:30%; animation-duration:8s;">💎</div>
+  <div class="gem" style="left:50%; animation-duration:5s;">💎</div>
+  <div class="gem" style="left:70%; animation-duration:7s;">💎</div>
+  <div class="gem" style="left:90%; animation-duration:9s;">💎</div>
+</div>
+
+
+  </section>
+
+  <!-- 3. Products Section -->
+  <section class="products">
+    <h2>منتجاتنا</h2>
+    <div class="product-grid">
+
+      <div class="card">
+        <img src="/broject image/diamond.png" alt="Free Fire">
+        <div class="card-content">
+          <h3>شحن فري فاير</h3>
+          <p>جواهر بأسعار مميزة</p>
+          <a href="checkout.html" class="btn">اشحن الآن</a>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <img src="/broject image/pubg2.jpg" alt="PUBG">
+        <div class="card-content">
+          <h3>شحن ببجي</h3>
+          <p>UC بأسعار منافسة</p>
+        <a href="checkout.html" class="btn">اشحن الآن</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="/broject image/netflix2.jpg" alt="Netflix">
+        <div class="card-content">
+          <h3>حسابات نتفلكس</h3>
+          <p>باقات شهرية مضمونة</p>
+         <a href="checkout.html" class="btn">اشترك الآن</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- 4. Payment Methods -->
+  <section class="payments">
+    <h2>طرق الدفع المتاحة</h2>
+    <div class="payment-logos">
+      <div class="payment">
+        <img src="/broject image/momo2.webp" alt="Mobile Money Uganda">
+        <p>Mobile Money Uganda</p>
+      </div>
+      <div class="payment">
+        <img src="/broject image/bankak.png" alt="بنكك">
+        <p>بنكك</p>
+      </div>
+      <div class="payment">
+        <img src="/broject image/cashi.png" alt="ماي كاشي">
+        <p>ماي كاشي</p>
+      </div>
+    </div>
+  </section>
+
+<!-- 5. Contact Section -->
+<section id="contact" style="background:#111; color:#fff; text-align:center; padding:50px;">
+  <h2 style="color:#FFD700;">اتصل بنا</h2>
+  <p>للتواصل معنا عبر الواتساب:</p>
+  <p><a href="https://wa.me/+256765617305" target="_blank" style="color:#25D366; font-size:18px; font-weight:bold;">+256 765 617305</a></p>
+  
+  <p>أو عبر البريد الإلكتروني:</p>
+  <p><a href="mailto:support@supergames.com" style="color:#FFD700; font-size:18px; font-weight:bold;">support@supergames.com</a></p>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 متجر سوبر جيمز</p>
+  </footer>
+
+</body>
+</html>
