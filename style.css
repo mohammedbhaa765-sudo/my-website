@@ -151,3 +151,34 @@ footer {
   margin-top: 40px;
 }
 
+@media (max-width: 768px) {
+  /* القائمه العلوية */
+  nav ul {
+    display: flex;
+    flex-direction: column;   /* يخلي العناصر تحت بعض */
+    align-items: center;      /* يوسطنهم في النص */
+    gap: 10px;                /* مسافة بين الروابط */
+  }
+
+  nav ul li {
+    margin: 0;                /* يشيل المسافة القديمة */
+  }
+
+  /* النصوص الكبيرة (العناوين) */
+  h1, h2, h3 {
+    font-size: 1.2rem;         /* يخليها أصغر شوية في الموبايل */
+    text-align: center;        /* يوسطن النص */
+  }
+
+  /* البادي */
+  body {
+    font-size: 16px;           /* حجم مناسب للقراءة */
+    overflow-x: hidden;        /* يمنع الشريط الأفقي */
+  }
+}
+
+.logo span {
+  display: inline-block;
+  margin: 0 3px;
+  white-space: nowrap;
+}
