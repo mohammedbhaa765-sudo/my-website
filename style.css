@@ -393,3 +393,53 @@ nav ul li a:hover {
 .bottom-nav .nav-item.active {
   color: #007bff; /* اللون الأزرق */
 }
+
+
+
+
+/* الخلفية الأساسية */
+body {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  background: #121212; /* أسود داكن */
+  color: #f1f1f1;      /* نص فاتح */
+}
+
+/* صناديق المحتوى */
+.account-page,
+.wallet-page,
+.orders-page,
+.support-page {
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+/* الكروت */
+.order-card,
+.transactions li,
+.profile,
+.balance,
+.support-page form {
+  background: #1e1e1e; /* رمادي غامق */
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  color: #fff;
+}
+
+/* أزرار */
+.btn {
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #0056b3;
+}
