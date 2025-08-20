@@ -209,18 +209,38 @@ nav ul li a:hover {
   color: #00ff99;         /* أخضر عند المرور */
 }
 
-nav ul {
-  margin-left: 30px; /* زود أو قلل الرقم حسب المسافة */
-}
-
-.logo {
-  margin-top: -10px; /* تقدر تزود الرقم عشان يطلع أكتر */
-}
-
-.logo {
+.logo-box {
   display: inline-block;
-  padding: 10px 20px;
-  background: linear-gradient(45deg, #ffeb3b, #4caf50, #2196f3);
-  border-radius: 10px;
+  padding: 15px 25px;
+  border-radius: 15px;
+  background: linear-gradient(270deg, #ffcc00, #00ff99, #3399ff, #ff3366);
+  background-size: 800% 800%;
+  animation: gradientMove 8s ease infinite;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.logo {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.logo span {
+  color: yellow;
+  font-size: 24px;
   font-weight: bold;
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+
+.logo span:hover {
+  color: green;
 }
