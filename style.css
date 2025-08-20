@@ -335,3 +335,25 @@ nav ul li a:hover {
   object-fit: cover;
   border-radius: 10px;
 }
+
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.marquee p {
+  display: inline-block;
+  font-size: 28px;
+  font-weight: bold;
+  color: #FFD700;
+  padding-left: 100%;
+  animation: marquee 12s linear infinite;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
