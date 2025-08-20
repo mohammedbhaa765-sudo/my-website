@@ -182,3 +182,29 @@ footer {
   margin: 0 3px;
   white-space: nowrap;
 }
+
+
+/* تنسيق القائمة */
+nav ul {
+  list-style: none;       /* يشيل النقط */
+  padding: 0;
+  margin: 0;
+  text-align: right;      /* يخلي الكلام مستقيم يمين */
+}
+
+nav ul li {
+  margin: 10px 0;         /* مسافة بين العناصر */
+}
+
+nav ul li a {
+  text-decoration: none;  /* يشيل الخط */
+  color: #FFD700;         /* اللون الأساسي (أصفر) */
+  font-size: 18px;
+  font-weight: bold;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #00ff99;         /* أخضر عند المرور */
+}
