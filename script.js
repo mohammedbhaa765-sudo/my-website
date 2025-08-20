@@ -60,3 +60,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+
+
+// -------------------- Slider --------------------
+var swiper = new Swiper(".mySwiper", {
+  loop: true,
+  autoplay: {
+    delay: 2500, // 2.5 ثانية
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
