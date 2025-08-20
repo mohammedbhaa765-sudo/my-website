@@ -245,3 +245,19 @@ nav ul li a:hover {
 .logo span:hover {
   color: green;
 }
+
+
+.logo-box {
+  display: inline-flex;   /* بدل block */
+  gap: 20px;             /* مسافة بين العناصر */
+  padding: 10px 20px;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0);
+  background-size: 400% 400%;
+  animation: gradientMove 8s ease infinite;
+  margin: 20px auto;
+}
+.logo-box span {
+  color: white;
+  font-weight: bold;
+}
