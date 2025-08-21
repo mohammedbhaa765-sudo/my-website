@@ -5,23 +5,115 @@
   <title>حسابي</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: "Tahoma", sans-serif;
+      margin: 0;
+      padding-bottom: 70px; /* عشان يدي مساحة لشريط التنقل */
+    }
+    .account-page {
+      text-align: center;
+      padding: 20px;
+    }
+    .profile img {
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .btn {
+      background: #1e90ff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      background: #0d6efd;
+    }
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(20,20,20,0.95);
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #333;
+      padding: 10px 0;
+    }
+    .bottom-nav a {
+      color: #aaa;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 12px;
+    }
+    .bottom-nav a i {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+    .bottom-nav a.active {
+      color: #1e90ff;
+    }
+    .hidden { display: none; }
+  </style>
 </head>
 <body>
-  <div class="account-page">
+
+  <!-- تسجيل الدخول -->
+  <div class="account-page" id="loginBox">
+    <h2>تسجيل الدخول</h2>
+    <input type="email" id="email" placeholder="البريد الإلكتروني" style="padding:10px;width:80%;margin:5px;border-radius:5px;border:none;">
+    <input type="password" id="password" placeholder="كلمة السر" style="padding:10px;width:80%;margin:5px;border-radius:5px;border:none;">
+    <button class="btn" onclick="login()">دخول</button>
+  </div>
+
+  <!-- بيانات الحساب -->
+  <div class="account-page hidden" id="accountBox">
     <div class="profile">
       <img src="https://via.placeholder.com/100" alt="avatar">
-      <h2>محمد أحمد</h2>
-      <p>mohammed@example.com</p>
+      <h2 id="userName">محمد أحمد</h2>
+      <p id="userEmail">mohammed@example.com</p>
     </div>
+    <p>💰 الرصيد: <span id="balance">0</span> جنيه</p>
     <button class="btn">تعديل البيانات</button>
+    <br><br>
+    <button class="btn" onclick="logout()">تسجيل الخروج</button>
   </div>
 
   <!-- شريط التنقل -->
   <div class="bottom-nav">
-    <a href="account.html"><i class="fa fa-user"></i><span>حسابي</span></a>
+    <a href="account.html" class="active"><i class="fa fa-user"></i><span>حسابي</span></a>
     <a href="wallet.html"><i class="fa fa-wallet"></i><span>المحفظة</span></a>
     <a href="orders.html"><i class="fa fa-box"></i><span>طلباتي</span></a>
     <a href="support.html"><i class="fa fa-headset"></i><span>الدعم</span></a>
   </div>
+
+  <script>
+    function login() {
+      const email = document.getElementById("email").value;
+      const pass = document.getElementById("password").value;
+
+      if (email && pass) {
+        document.getElementById("loginBox").classList.add("hidden");
+        document.getElementById("accountBox").classList.remove("hidden");
+        document.getElementById("userEmail").innerText = email;
+        document.getElementById("userName").innerText = "مستخدم جديد";
+        document.getElementById("balance").innerText = "1500"; // رصيد تجريبي
+      } else {
+        alert("الرجاء إدخال البريد الإلكتروني وكلمة السر");
+      }
+    }
+
+    function logout() {
+      document.getElementById("accountBox").classList.add("hidden");
+      document.getElementById("loginBox").classList.remove("hidden");
+    }
+  </script>
+
 </body>
 </html>

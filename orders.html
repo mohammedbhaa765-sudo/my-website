@@ -5,17 +5,81 @@
   <title>طلباتي</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: "Tahoma", sans-serif;
+      margin: 0;
+      padding-bottom: 70px; /* مساحة لشريط التنقل */
+      text-align: center;
+    }
+    .orders-page {
+      padding: 20px;
+    }
+    .order-card {
+      background: #111;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 10px auto;
+      width: 85%;
+      text-align: right;
+    }
+    .order-card p {
+      margin: 0 0 8px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .order-card span {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .completed {
+      color: #0f0; /* أخضر */
+    }
+    .pending {
+      color: orange; /* برتقالي */
+    }
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(20,20,20,0.95);
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #333;
+      padding: 10px 0;
+    }
+    .bottom-nav a {
+      color: #aaa;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 12px;
+    }
+    .bottom-nav a i {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+    .bottom-nav a.active {
+      color: #1e90ff;
+    }
+  </style>
 </head>
 <body>
   <div class="orders-page">
     <h2>📦 طلباتي</h2>
+
     <div class="order-card">
       <p>PUBG UC - 60</p>
-      <span>✅ مكتمل</span>
+      <span class="completed">✅ مكتمل</span>
     </div>
+
     <div class="order-card">
       <p>Netflix - 1 شهر</p>
-      <span>⏳ قيد المعالجة</span>
+      <span class="pending">⏳ قيد المعالجة</span>
     </div>
   </div>
 

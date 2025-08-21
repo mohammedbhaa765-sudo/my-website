@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>تسجيل دخول الأدمن</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body{background:#000;color:#fff;font-family:"Tahoma",sans-serif;margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center}
+    .card{background:#111;border:1px solid #333;border-radius:12px;padding:24px;width:min(420px,92vw)}
+    h2{margin:0 0 16px;text-align:center}
+    label{display:block;margin:8px 0 4px}
+    input{width:100%;padding:10px;border:none;border-radius:8px;background:#1a1a1a;color:#fff}
+    .btn{width:100%;margin-top:14px;background:#1e90ff;border:none;color:#fff;padding:10px;border-radius:8px;cursor:pointer}
+    .btn:hover{background:#0d6efd}
+    .hint{color:#aaa;font-size:12px;text-align:center;margin-top:10px}
+    .link{color:#1e90ff;cursor:pointer}
+    .err{color:#ff6b6b;font-size:13px;margin-top:8px;display:none}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>تسجيل دخول الأدمن</h2>
+
+    <label for="email">البريد</label>
+    <input id="email" type="email" placeholder="admin@yallan3b.com" />
+
+    <label for="password">كلمة السر</label>
+    <input id="password" type="password" placeholder="****" />
+
+    <button class="btn" id="loginBtn">دخول</button>
+    <div class="err" id="err">المعلومات غير صحيحة</div>
+
+    <div class="hint">
+      بيانات التجربة: admin@yallan3b.com / 123456<br />
+      <span class="link" id="reset">إعادة ضبط بيانات الأدمن</span>
+    </div>
+  </div>
+
+  <script>
+    // نحفظ/نقرأ بيانات الأدمن من localStorage حتى تقدر تغيرها
+    const KEY = "ADMIN_CREDS";
+    const defaults = { email: "admin@yallan3b.com", pass: "123456" };
+
+    function getCreds() {
+      const raw = localStorage.getItem(KEY);
+      try { return raw ? JSON.parse(raw) : defaults; } catch { return defaults; }
+    }
+    function setCreds(creds) { localStorage.setItem(KEY, JSON.stringify(creds)); }
+
+    // زر الدخول
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      const email = document.getElementById("email").value.trim();
+      const pass  = document.getElementById("password").value;
+
+      const { email: adminEmail, pass: adminPass } = getCreds();
+
+      if (email === adminEmail && pass === adminPass) {
+        localStorage.setItem("isAdmin", "true");
+        window.location.href = "admin-dashboard.html";
+      } else {
+        const err = document.getElementById("err");
+        err.style.display = "block";
+        err.textContent = "المعلومات غير صحيحة";
+      }
+    });
+
+    // إعادة الضبط للبيانات الافتراضية
+    document.getElementById("reset").addEventListener("click", () => {
+      setCreds(defaults);
+      alert("تمت إعادة ضبط بيانات الأدمن إلى القيم الافتراضية.");
+    });
+
+    // تعبئة افتراضية لتسهيل التجربة
+    document.getElementById("email").value = getCreds().email;
+  </script>
+</body>
+</html>

@@ -2,17 +2,109 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>الدعم</title>
+  <title>الدعم الفني</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: "Tahoma", sans-serif;
+      margin: 0;
+      padding-bottom: 70px;
+      text-align: center;
+    }
+    .support-page {
+      padding: 20px;
+    }
+    .contact-card {
+      background: #111;
+      padding: 15px;
+      margin: 10px auto;
+      border-radius: 8px;
+      width: 80%;
+      text-align: right;
+    }
+    .contact-card a {
+      color: #1e90ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .form-box {
+      background: #111;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px auto;
+      width: 85%;
+    }
+    .form-box textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    .form-box button {
+      background: #1e90ff;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    .form-box button:hover {
+      background: #0d6efd;
+    }
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(20,20,20,0.95);
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #333;
+      padding: 10px 0;
+    }
+    .bottom-nav a {
+      color: #aaa;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 12px;
+    }
+    .bottom-nav a i {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+    .bottom-nav a.active {
+      color: #1e90ff;
+    }
+  </style>
 </head>
 <body>
   <div class="support-page">
     <h2>🛠️ الدعم الفني</h2>
-    <form>
-      <textarea placeholder="اكتب مشكلتك هنا..." rows="5"></textarea>
-      <button class="btn">إرسال</button>
-    </form>
+    <p>تواصل مباشرة مع الوكلاء عبر الواتساب أو أرسل مشكلتك هنا.</p>
+
+    <div class="contact-card">
+      <p>📱 وكيل الدعم 1</p>
+      <a href="https://wa.me/249900000000" target="_blank">💬 واتساب</a>
+    </div>
+    <div class="contact-card">
+      <p>📱 وكيل الدعم 2</p>
+      <a href="https://wa.me/249911111111" target="_blank">💬 واتساب</a>
+    </div>
+
+    <div class="form-box">
+      <h3>📩 ارسل مشكلتك</h3>
+      <form>
+        <textarea placeholder="اكتب مشكلتك هنا..." rows="5"></textarea>
+        <button type="submit">إرسال</button>
+      </form>
+    </div>
   </div>
 
   <!-- شريط التنقل -->

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>لوحة تحكم الأدمن</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {background:#000;color:#fff;font-family:"Tahoma",sans-serif;margin:0;padding:20px}
+    h2 {text-align:center;margin:10px 0 20px}
+    table {width:100%;border-collapse:collapse;margin-top:10px}
+    table, th, td {border:1px solid #333}
+    th, td {padding:10px;text-align:center}
+    .btn {background:#1e90ff;color:#fff;border:none;padding:6px 12px;border-radius:6px;cursor:pointer}
+    .btn:hover {background:#0d6efd}
+    .logout {background:#e11d48;float:left;margin-bottom:16px}
+    input[type="number"] {width:110px;padding:7px;border:none;border-radius:6px;text-align:center;background:#111;color:#fff}
+    .wrap {max-width:1050px;margin:0 auto}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <button class="btn logout" onclick="logout()">🚪 تسجيل خروج</button>
+  <h2>📊 لوحة تحكم الأدمن</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>📧 إيميل العميل</th>
+        <th>💰 الرصيد الحالي</th>
+        <th>➕ إضافة رصيد</th>
+      </tr>
+    </thead>
+    <tbody id="usersTable"></tbody>
+  </table>
+</div>
+
+<script>
+  // حماية الصفحة
+  if (localStorage.getItem("isAdmin") !== "true") {
+    window.location.href = "admin-login.html";
+  }
+
+  const USERS_KEY = "admin_users";
+
+  // بيانات أولية (مرة واحدة فقط لو ما موجودة)
+  function seedUsers() {
+    const seed = [
+      { email: "user1@yahoo.com", balance: 5000 },
+      { email: "user2@gmail.com", balance: 2000 },
+      { email: "user3@hotmail.com", balance: 1000 }
+    ];
+    localStorage.setItem(USERS_KEY, JSON.stringify(seed));
+    return seed;
+  }
+
+  function loadUsers() {
+    const raw = localStorage.getItem(USERS_KEY);
+    return raw ? JSON.parse(raw) : seedUsers();
+  }
+
+  function saveUsers(users) {
+    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+  }
+
+  let users = loadUsers();
+
+  function renderUsers() {
+    const tbody = document.getElementById("usersTable");
+    tbody.textContent = ""; // تفريغ الجدول
+
+    users.forEach((user, index) => {
+      const tr = document.createElement("tr");
+
+      // البريد
+      const tdEmail = document.createElement("td");
+      tdEmail.textContent = user.email;
+
+      // الرصيد
+      const tdBalance = document.createElement("td");
+      tdBalance.id = `balance-${index}`;
+      tdBalance.textContent = `${user.balance} SDG`;
+
+      // التحكم
+      const tdAction = document.createElement("td");
+      const input = document.createElement("input");
+      input.type = "number";
+      input.id = `amount-${index}`;
+      input.placeholder = "المبلغ";
+
+      const btn = document.createElement("button");
+      btn.className = "btn";
+      btn.textContent = "إضافة";
+      btn.addEventListener("click", () => addFunds(index));
+
+      tdAction.appendChild(input);
+      tdAction.appendChild(btn);
+
+      tr.appendChild(tdEmail);
+      tr.appendChild(tdBalance);
+      tr.appendChild(tdAction);
+
+      tbody.appendChild(tr);
+    });
+  }
+
+  function addFunds(index) {
+    const input  = document.getElementById(`amount-${index}`);
+    const amount = parseInt(input.value, 10);
+
+    if (isNaN(amount) || amount <= 0) {
+      alert("⚠️ الرجاء إدخال مبلغ صحيح");
+      return;
+    }
+
+    users[index].balance += amount;
+    document.getElementById(`balance-${index}`).textContent =
+      `${users[index].balance} SDG;`
+
+    input.value = "";
+
+    saveUsers(users);
+    alert(`✅ تم تغذية ${users[index].email} بمبلغ ${amount} SDG`);
+  }
+
+  function logout() {
+    localStorage.removeItem("isAdmin");
+    window.location.href = "admin-login.html";
+  }
+
+  renderUsers();
+</script>
+</body>
+</html>

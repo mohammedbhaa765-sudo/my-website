@@ -5,14 +5,86 @@
   <title>المحفظة</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: "Tahoma", sans-serif;
+      margin: 0;
+      padding-bottom: 70px; /* مساحة لشريط التنقل */
+      text-align: center;
+    }
+    .wallet-page {
+      padding: 20px;
+    }
+    .balance {
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      font-size: 22px;
+      font-weight: bold;
+      width: fit-content;
+    }
+    .btn {
+      background: #1e90ff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    .btn:hover {
+      background: #0d6efd;
+    }
+    ul.transactions {
+      list-style: none;
+      padding: 0;
+    }
+    ul.transactions li {
+      background: #111;
+      padding: 10px;
+      margin: 5px auto;
+      border-radius: 5px;
+      width: 80%;
+      text-align: right;
+    }
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(20,20,20,0.95);
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #333;
+      padding: 10px 0;
+    }
+    .bottom-nav a {
+      color: #aaa;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 12px;
+    }
+    .bottom-nav a i {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+    .bottom-nav a.active {
+      color: #1e90ff;
+    }
+  </style>
 </head>
 <body>
   <div class="wallet-page">
     <h2>💰 رصيدي الحالي</h2>
-    <div class="balance">5000 SDG</div>
-    <button class="btn">إضافة رصيد</button>
+    <div class="balance" id="walletBalance">5000 SDG</div>
+    <button class="btn" onclick="addFunds()">➕ إضافة رصيد</button>
     <h3>آخر العمليات</h3>
-    <ul class="transactions">
+    <ul class="transactions" id="transactionsList">
       <li>+ 2000 SDG - تغذية</li>
       <li>- 1500 SDG - شراء PUBG UC</li>
     </ul>
@@ -25,5 +97,21 @@
     <a href="orders.html"><i class="fa fa-box"></i><span>طلباتي</span></a>
     <a href="support.html"><i class="fa fa-headset"></i><span>الدعم</span></a>
   </div>
+
+  <script>
+    var balance = 5000;
+
+    function updateBalance() {
+      var el = document.getElementById("walletBalance");
+      el.innerText = balance + " SDG";
+    }
+
+    function addFunds() {
+      // بدل إضافة رصيد وهمية نحول مباشرة للصفحة
+      window.location.href = "agents.html";
+    }
+
+    updateBalance();
+  </script>
 </body>
 </html>
